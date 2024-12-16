@@ -25,18 +25,21 @@ image: img/title.png
     />
     <style>
         body {
-            overflow: hidden;
+
             margin: 0;
             height: 100vh;
         }
         h1 {
             margin-left: 30px;
+            padding: 20px;
             color: #000;
             text-decoration: none;
             font-family: Poppins, sans-serif;
             font-weight: 500;
             font-size: 1rem;
             transition: color 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
         }
         #descr {
             position: absolute;
@@ -58,9 +61,20 @@ image: img/title.png
 
 <body>
     <div id="descr">
-        <img src="img/logo.svg" alt="Logo" id="logo">
+        <a href="https://halfward.github.io/UrbanVein/">
+            <img src="img/logo.svg" alt="Logo" id="logo">
+        </a>
         <h1>
-            a storytelling platform that uses material data to illuminate nyc’s urban identity, offering insights into the role materials play in shaping the bulit environment.
+            <b>what is urban vein?</b><br>
+            urban vein is a dynamic web platform that reimagines new york city’s evolving identity through the lens of its building materials. this project bridges computation, design, and storytelling, offering spatial decision-makers the tools to identify trends and uncover patterns. it visualizes material archetypes across scales and explores temporal dimensions through historical and speculative narratives. at stake is the question of sustainability and urban memory. urban vein invites us to consider how material knowledge might guide responsible design practices in an ever-changing cityscape.
+            <br><br><br>
+            <b>why is this important?</b><br>
+            urban vein is an analytic and narrative tool that explores material histories, promotes sustainable urban practices, and challenges conventional demolition-preservation dynamics. it operates across scales—from the micro (individual buildings) to the macro (city-wide trends)—while fostering new practices in spatial storytelling.<br>
+            through its focus on material life cycles and speculative timelines, urban vein invites users to engage with critical questions of sustainability and urban identity, presenting data in an interactive, participatory manner. the platform prioritizes user accessibility and narrative clarity, aiming to inspire informed decision-making for the built environment.
+            <br><br><br>
+            <b>how does it work?</b><br>
+            urban vein uses open data to estimate material compositions for the majority of its buildings. machine learning models analyze building age, size, and use to identify material archetypes, leveraging reference data where exact information is unavailable. these material archetypes inform a dynamic d3.js-based visualization that overlays five material layers.<br>
+            this computational workflow affords granular insights into urban material trends. it enables seamless user interaction with layered data, offering toggles, hover functions, and future timeline animations. these methods transform abstract data into tangible actions to aid contextualizing material flows.
         </h1>
         <br>
         <h1 id="link">
