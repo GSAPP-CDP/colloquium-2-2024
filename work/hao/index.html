@@ -25,9 +25,9 @@ image: img/title.png
     />
     <style>
         body {
-
             margin: 0;
             height: 100vh;
+            overflow: hidden;
         }
         h1 {
             margin-left: 30px;
@@ -36,25 +36,39 @@ image: img/title.png
             text-decoration: none;
             font-family: Poppins, sans-serif;
             font-weight: 500;
-            font-size: 1rem;
+            font-size: 0.9rem;
             transition: color 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.7);
             border-radius: 10px;
         }
         #descr {
             position: absolute;
             width: 30vw;
-            margin: 80px;
+            margin: 0;
+            margin-top: 100px;
             margin-left: 50px;
+            height: 70vh;
+            overflow-y: hidden;
+            z-index: 10;
+        }
+        #text {
+            overflow-y: scroll;
+            height: 80%;
         }
         #logo {
-            width: 100%;
+            width: 60%;
+            margin-left: 20px;
+            transition: filter 0.3s ease;
+        }
+        #logo:hover {
+            filter: invert(100%) brightness(100%) hue-rotate(60deg);
         }
         #background {
             width: 100vw;
             height: auto;
             margin: 0;
-            z-index: -1;
+            transform: translateY(-40vh);
+            z-index: -10;
         }
     </style>
 </head>
@@ -64,25 +78,94 @@ image: img/title.png
         <a href="https://halfward.github.io/UrbanVein/">
             <img src="img/logo.svg" alt="Logo" id="logo">
         </a>
-        <h1>
-            <b>what is urban vein?</b><br>
-            urban vein is a dynamic web platform that reimagines new york city’s evolving identity through the lens of its building materials. this project bridges computation, design, and storytelling, offering spatial decision-makers the tools to identify trends and uncover patterns. it visualizes material archetypes across scales and explores temporal dimensions through historical and speculative narratives. at stake is the question of sustainability and urban memory. urban vein invites us to consider how material knowledge might guide responsible design practices in an ever-changing cityscape.
-            <br><br><br>
-            <b>why is this important?</b><br>
-            urban vein is an analytic and narrative tool that explores material histories, promotes sustainable urban practices, and challenges conventional demolition-preservation dynamics. it operates across scales—from the micro (individual buildings) to the macro (city-wide trends)—while fostering new practices in spatial storytelling.<br>
-            through its focus on material life cycles and speculative timelines, urban vein invites users to engage with critical questions of sustainability and urban identity, presenting data in an interactive, participatory manner. the platform prioritizes user accessibility and narrative clarity, aiming to inspire informed decision-making for the built environment.
-            <br><br><br>
-            <b>how does it work?</b><br>
-            urban vein uses open data to estimate material compositions for the majority of its buildings. machine learning models analyze building age, size, and use to identify material archetypes, leveraging reference data where exact information is unavailable. these material archetypes inform a dynamic d3.js-based visualization that overlays five material layers.<br>
-            this computational workflow affords granular insights into urban material trends. it enables seamless user interaction with layered data, offering toggles, hover functions, and future timeline animations. these methods transform abstract data into tangible actions to aid contextualizing material flows.
-        </h1>
-        <br>
-        <h1 id="link">
+        <div id="text">
+            <h1>
+                <b>Hypothesis</b><br>
+                By mapping and analyzing the material composition of New York City’s buildings, we can reveal patterns of urban transformation that inform better decisions for preservation, demolition, and future construction.
+                <br><br>
+                <b>Project Description</b><br>
+                Urban Vein is a web-based platform that uses the material composition of New York City's buildings to uncover urban transformation patterns. The project investigates how materials define a city's identity over time and aims to help spatial decision-makers identify trends that impact urban development. Through visualizing material data, it reveals what is being lost, what exists, and what could shape future construction.<br>
+                At stake is the sustainability of urban environments and the need for responsible decision-making in the face of ongoing demolition and reconstruction. The platform works across multiple scales, from individual buildings to city-wide distributions, and dimensions—both spatially and temporally. The data visualization and mapping methods allow for interaction with NYC’s built environment, giving users an insightful look into its ongoing evolution.
+                <br><br>
+                <b>Computational Methods</b><br>
+                Urban Vein uses open data from NYC, applying machine learning models to estimate the material compositions of buildings. These models identify material archetypes for roughly 10% of the city's buildings, and infer materials for the remaining majority based on building age, size, and usage. D3.js is then used to create a dynamic map visualization, which overlays five distinct material layers through a chromatic aberration visualization technique.<br>
+                This computational approach allows for large-scale data analysis and real-time user interaction, providing a clear understanding of the material patterns shaping urban landscapes. The workflow enables the platform to handle complex spatial data, providing users with insightful and visually appealing representations of NYC's urban material distribution.
+                <br><br>
+                <b>Design Methods</b><br>
+                Urban Vein employs analytic and narrative design methods. The platform is both experimental and speculative, using material data to tell stories about the past, present, and future of urban environments. It provides a space for participatory interaction where users can engage with visualized urban material data through toggles, hover functions, and comparison tools.<br>
+                The platform’s design empowers users to make informed decisions about sustainable building practices and city planning. It critiques conventional practices around urban demolition and preservation, offering a new way to consider building materials through a lens of environmental stewardship and urban transformation. By engaging users in speculative narratives, Urban Vein transforms dry data into compelling, actionable insights.
+                <br><br>
+                <b>Precedents</b><br>
+                Urban Vein builds upon the work of several key precedents in data-driven urban mapping and sustainability. Projects like Mapping Historical New York and the Climate-Conflict-Vulnerability Index have influenced the way Urban Vein approaches mapping and visualization. These projects highlight the power of geospatial analysis to inform urban planning and design. Additionally, research into material footprints such as City-Scale Assessment of the Material and Environmental Footprint of Buildings provides a foundation for the material estimation methods used in Urban Vein. This project critiques the present condition of urban development by proposing a new lens: one that centers material distribution as a crucial factor in shaping cities.<br>
+                Urban Vein also integrates commercial products like RSMeans Data, Circularise, and Zillow to enhance material estimation and provide a more comprehensive view of urban environments. These tools ensure that the material estimation process is both data-rich and reflective of real-world economic and environmental factors.
+                <br><br>
+                <a href="https://halfward.github.io/UrbanVein/"><b>Proof of Concept</b></a><br>
+                The proof of concept for Urban Vein includes the initial prototype of the interactive map and data layers, where users can toggle between material types and view the composition of different NYC neighborhoods. The data visualization prototype uses D3.js to display the materials in vibrant, layered colors, with hover functions providing detailed information about building materials, age, and usage.<br>
+                Upcoming iterations will include timeline features to simulate changes over time and further enhancements to interactivity, such as more intuitive comparison panels for building archetypes and material composition. Also, the main focus for the final semester (2025 spring) will be creating scrollytelling experiences using Urban Vein's platform structure. These stories will explore past, present, and future urban possibilities, all through the building material lens. 
+                <br><br>
+                <b>Audience</b><br>
+                Urban Vein is aimed primarily at urban planners, architects, and sustainability advocates who seek to make informed decisions about urban development and materials. The platform's accessibility is key, and it can be used by a broad range of users interested in the future of cities.<br>
+                The platform could also be adapted for educational purposes, offering students and researchers a tool for understanding urban transformation.
+                <br><br>
+                <b>Data</b><br>
+                The project uses several datasets, including NYC building footprints, zoning features, subway lines, and open data on building demolition. The base maps mianly come from NYC's PLUTO data and other public geospatial sources.<br>
+                The data is already accessible and continuously updated through open-source platforms, ensuring that Urban Vein remains an up-to-date and reliable tool for urban analysis. 
+                <br><br>
+                <b>Research/Bibliography</b><br>
+                Graphic/Visuals:<br>
+                Climate-Conflict-Vulnerability Index by Moritz Stefaner<br>
+                Marathon by Bungie<br>
+                G4DP F24 Precedent Presentations – Are.na Channel curated by the Fall '24 GIS for Design Practices group at GSAPP Columbia<br>
+                <br>
+                GIS/Mapping:<br>
+                GIS for Design Practices by Dare Brawley and Mario Giampieri<br>
+                Mapping Historical New York by Center for Spatial Research<br>
+                Asian American Dot Density Map by Jia Zhang<br>
+                NYC Construction Dashboard 2022 by DOB Analytics<br>
+                <br>
+                Material Estimation & Circular Economy:<br>
+                City-Scale Assessment of the Material and Environmental Footprint of Buildings Using an Advanced Building Information Model: A Case Study from Canberra, Australia by Natthanij Soonsawad, Raymundo Marcos-Martinez, and Heinz Schandl<br>
+                Materials Passports - Best Practices by Matthias Heinrich and Werner Lang<br>
+                Estimating the Recoverable Value of In-Situ Building Materials by Aida Mollaei, Chris Bachmann, and Carl Haas<br>
+                RSMeans Data by Gordian<br>
+                Circularise by Circularise<br>
+                Zestimate by Zillow<br>
+                <br>
+                Speculation:<br>
+                Roadmap 2050 by OMA<br>
+                <br>
+                JS Libraries:<br>
+                Leaflet originally created by Volodymyr Agafonkin<br>
+                D3 by Mike Bostock and Observable, Inc.<br>
+                Geohexgrid by Alex Raichev at MRCagney<br>
+                Chart by Evert Timberg and GitHub contributors<br>
+                Sortable by Lebedev Konstantin and GitHub contributors<br>
+                Splide by Naotoshi Fujita<br>
+                <br>
+                Columbia GSAPP M.S.CDP:<br>
+                Capstone Project Archive<br>
+                <br>
+                <b>Data Sources</b><br>
+                Base Map:<br>
+                NYC PLUTO Data by NYC Department of City Planning: A comprehensive dataset providing detailed land use, zoning, and physical attributes of properties in NYC.<br>
+                NYC Building Footprints by NYC OpenData: Geospatial data outlining the precise boundaries of buildings across New York City, useful for creating accurate maps and models.<br>
+                <br>
+                Base Map Background:<br>
+                New York State Civil Boundaries by New York State GIS Resources: Data providing the boundaries of civil divisions in New York State.<br>
+                Coastline (2012) of New Jersey by NJDEP Bureau of GIS: Geospatial data on New Jersey's coastline.<br>
+                Map Layers:<br>
+                NYC GIS Zoning Features by the Department of City Planning (DCP): Zoning information for New York City, detailing the rules and regulations governing land use across various areas.<br>
+                NYC Subway Lines by the Metropolitan Transportation Authority (MTA): Geospatial data showing the routes and stations of the NYC subway system.<br>
+                Construction Demolition Registrants by NYC OpenData: Data related to the registrants for construction and demolition permits, valuable for tracking urban development and demolition activities.<br>
+                <br>
+                Geospatial Data:<br>
+                Geospatial Data for Bedrock Elevation and Overburden Thickness Maps of the Five Boroughs, New York City by Laura M. Demott, Frederick Stumm, and Jason S. Finkelstein.
+        </div>
+        <h1 id="link" style="background-color: transparent;">
             <a href="https://halfward.github.io/UrbanVein/" target="_blank">
                 <u>click here to access urban vein</u>
             </a>
         </h1>
-        
     </div>
     <img src="img/background.png" alt="Background Image" id="background">
 </body>
